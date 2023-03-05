@@ -1,23 +1,39 @@
-import logo from './logo.svg';
+import { createSignal } from 'solid-js';
+
+import { fnTempName } from './font/mapping';
+
 import styles from './App.module.css';
 
 function App() {
+  const [divLocIdx, setDivLocIdx] = createSignal(0);
+
+  const divs = [];
+  for (let i = 0; i < 3000; i++) {
+    divs.push(
+      <div style={{
+        height: '1px',
+        width: '1px',
+        position: 'absolute',
+        left: `${fnTempName(divLocIdx())?.[i]?.left || 0}px`,
+        top: `${fnTempName(divLocIdx())?.[i]?.top || 0}px`,
+        'background-color': `${fnTempName(divLocIdx())?.[i]?.color || 'white'}`,
+        transition: 'all 1s',
+      }} />,
+    );
+  }
+
   return (
     <div class={styles.App}>
-      <header class={styles.header}>
-        <img src={logo} class={styles.logo} alt="logo" />
-        <p>
-          Edit <code>src/App.jsx</code> and save to reload.
-        </p>
-        <a
-          class={styles.link}
-          href="https://github.com/solidjs/solid"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn Solid
-        </a>
-      </header>
+      {divs}
+      <button onClick={() => setDivLocIdx(0)}>
+        0
+      </button>
+      <button onClick={() => setDivLocIdx(1)}>
+        1
+      </button>
+      <button onClick={() => setDivLocIdx(2)}>
+        2
+      </button>
     </div>
   );
 }
