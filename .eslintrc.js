@@ -12,8 +12,10 @@ module.exports = {
   },
   rules: {
     indent: ['error', 2],
+    'max-depth': ['error', 10],
     'max-len': ['error', { code: 80 }],
     'object-curly-spacing': ['error', 'always'],
     'object-property-newline': 'error',
+    quotes: ['error', 'single', { avoidEscape: true }],
   },
 };
