@@ -1,58 +1,44 @@
-import { createSignal, createMemo } from 'solid-js';
+import {
+  createSignal, Index
+} from 'solid-js';
 
-import { getDivPositions } from './font/text';
+import { getDivs } from './font/text';
 import { exampleWorkTexts } from './copy/words';
-// Import { solariaDivPositions } from './copy/solaria';
-// import { integrityDivPositions } from './copy/integrity';
-// import { draftkingsDivPositions } from './copy/draftkings';
 
 import styles from './App.module.css';
 
-const MOBILE_WIDTH = 360;
+const MOBILE_WIDTH = 343;
 
 function App() {
-  const [workTextIdx, setWorkTextIdx] = createSignal(0);
-
-  // METHOD 1 - slow
+  const [ workTextIdx, setWorkTextIdx ] = createSignal(0);
   const workText = () => exampleWorkTexts[workTextIdx()];
+  const divData = () => getDivs(workText(), 1, MOBILE_WIDTH);
 
-  const divPositions = createMemo(() => {
-    console.log('memo calc');
-    return getDivPositions(workText(), 1, MOBILE_WIDTH);
-  });
-
-  // METHOD 2 - slow
-  // Const divPositions = createMemo(() => {
-  //   console.log(1234)
-  //   switch (workTextIdx()) {
-  //     case 0:
-  //       return solariaDivPositions;
-  //     case 1:
-  //       return integrityDivPositions;
-  //     case 2:
-  //       return draftkingsDivPositions
-  //   }
-  // })
-
-  // METHOD 3 - ?
-
-  const divs = [];
-  for (let i = 0; i < 10000; i++) {
-    divs.push(
-      <div style={{
-        height: '1px',
-        width: '1px',
-        position: 'absolute',
-        left: `${divPositions()[i]?.left || 0}px`,
-        top: `${divPositions()[i]?.top || 0}px`,
-        'background-color': `${divPositions()[i]?.color || '#FFEAB0'}`,
-        transition: 'all 1s',
-      }} />,
-    );
-  }
+  const headerData = () => getDivs('Chris Kei', 2, MOBILE_WIDTH);
 
   return (
     <div class={styles.App}>
+      <div
+        style={{
+          width: '158px',
+          height: '26px'
+        }}
+        onClick={() => console.log('link to home')}
+      >
+        <Index each={headerData()}>
+          {ele => <div
+            style={{
+              position: 'absolute',
+              width: `${ele().width}px`,
+              height: `${ele().height}px`,
+              'z-index': ele()['z-index'],
+              'background-color': ele()['background-color'],
+              transform: `translate(${ele().left}px, ${ele().top}px)`,
+              transition: ' transform 1s'
+            }}
+          />}
+        </Index>
+      </div>
       <button onClick={() => setWorkTextIdx(0)}>
         0
       </button>
@@ -65,9 +51,21 @@ function App() {
       <div style={{
         width: `${MOBILE_WIDTH}px`,
         position: 'relative',
-        margin: '0 auto',
+        margin: '0 auto'
       }}>
-        {divs}
+        <Index each={divData()}>
+          {ele => <div
+            style={{
+              position: 'absolute',
+              width: `${ele().width}px`,
+              height: `${ele().height}px`,
+              'z-index': ele()['z-index'],
+              'background-color': ele()['background-color'],
+              transform: `translate(${ele().left}px, ${ele().top}px)`,
+              transition: ' transform 1s'
+            }}
+          />}
+        </Index>
       </div>
     </div>
   );
