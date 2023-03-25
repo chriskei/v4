@@ -8,8 +8,13 @@ const root = document.getElementById('root');
 
 if (import.meta.env.DEV && !(root instanceof HTMLElement)) {
   throw new Error(
-    'Root element not found, check index.html!',
+    'Root element not found, check index.html!'
   );
 }
 
-render(() => <App />, root);
+render(() => (
+  <>
+    <meta name='theme-color' content='#FFEAB0' />
+    <App />
+  </>),
+root);

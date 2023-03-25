@@ -1,7 +1,39 @@
-.App {
-  margin: 1rem;
+.mobile_container {
+  display: none;
 }
 
-button {
-  margin-bottom: 2rem;
+@media screen and (min-width: 375px) {
+  .mobile_container {
+    display: block;
+    width: var(--MOBILE_WIDTH);
+    margin: 1rem auto;
+  }
+  
+  .tablet_container {
+    display: none;
+  }
+
+  .desktop_container {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .mobile_container {
+    display: none;
+  }
+
+  .tablet_container {
+    display: inline;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .tablet_container {
+    display: none;
+  }
+
+  .desktop_container {
+    display: inline;
+  }
 }
