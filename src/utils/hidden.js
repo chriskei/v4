@@ -4,16 +4,16 @@ export const generateHiddenTransform = () => {
   const random2Rounded = Math.round(random2 * 100);
 
   if (random1 < 0.25) {
-    return `translate(-50vw, ${random2Rounded}vh)`;
+    return `translate(-100vw, ${random2Rounded}vh)`;
   }
 
   if (random1 < 0.5) {
-    return `translate(150vw, ${random2Rounded}vh)`;
+    return `translate(200vw, ${random2Rounded}vh)`;
   }
 
   if (random1 < 0.75) {
-    return `translate(${random2Rounded}vw, -50vh)`;
+    return `translate(${random2Rounded}vw, -100vh)`;
   }
 
-  return `translate(${random2Rounded}vw, 150vh)`;
+  return `translate(${random2Rounded}vw, 200vh)`;
 };

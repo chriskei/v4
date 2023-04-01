@@ -8,12 +8,18 @@
 }
 
 html {
+  height: calc(100vh);
   overflow: hidden;
 }
 
 body {
+  position: relative;
+  height: 100%;
   margin: 0;
   background-color: var(--vanilla);
-  position: relative;
   overflow: hidden;
+}
+
+#root {
+  height: 100%;
 }

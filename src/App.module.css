@@ -4,9 +4,11 @@
 
 @media screen and (min-width: 375px) {
   .mobile_container {
-    display: block;
+    display: flex;
+    flex-direction: column;
     width: var(--MOBILE_WIDTH);
-    margin: 1rem auto;
+    height: 100%;
+    margin: 0 auto;
   }
   
   .tablet_container {
