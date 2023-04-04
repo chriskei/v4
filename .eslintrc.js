@@ -12,8 +12,9 @@ module.exports = {
   },
   rules: {
     'array-bracket-spacing': [ 'error', 'always' ],
-    indent: [ 'error', 2 ],
     'comma-dangle': [ 'error', 'never' ],
+    complexity: 'off',
+    indent: [ 'error', 2 ],
     'max-depth': [ 'error', 10 ],
     'max-len': [ 'error', { code: 100 } ],
     'object-curly-newline': [ 'error', { minProperties: 2 } ],

@@ -1,10 +1,10 @@
-import { useMajorPageContext } from '../context/MajorPage';
+import { usePageContext } from '../context/Page';
 import { MAJOR_PAGES } from '../utils/majorPages';
 import FlyManager from './FlyManager';
 import Continue from './Continue';
 
 export default function AppreciationPage() {
-  const { majorPage } = useMajorPageContext();
+  const { majorPage } = usePageContext();
 
   return (
     <>

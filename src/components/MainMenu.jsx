@@ -1,4 +1,4 @@
-import { useMajorPageContext } from '../context/MajorPage';
+import { usePageContext } from '../context/Page';
 import { MAJOR_PAGES } from '../utils/majorPages';
 import FlyManager from './FlyManager';
 
@@ -6,7 +6,7 @@ import FlyManager from './FlyManager';
 //   desiredMajorPage - signal<int>
 //   setDesiredMajorPage - func<int => null>
 export default function MainMenu(props) {
-  const { majorPage } = useMajorPageContext();
+  const { majorPage } = usePageContext();
 
   return (
     <div style={{ display: 'flex' }}>
@@ -16,22 +16,26 @@ export default function MainMenu(props) {
           activeCondition: props.desiredMajorPage() === MAJOR_PAGES.ABOUT,
           pixelMultiplier: 2,
           text: '{',
-          width: '36px'
+          width: '36px',
+          'margin-bottom': '8px'
         }, {
           activeCondition: props.desiredMajorPage() === MAJOR_PAGES.WORK,
           pixelMultiplier: 2,
           text: '|{',
-          width: '36px'
+          width: '36px',
+          'margin-bottom': '8px'
         }, {
           activeCondition: props.desiredMajorPage() === MAJOR_PAGES.LINKS,
           pixelMultiplier: 2,
           text: '||{',
-          width: '36px'
+          width: '36px',
+          'margin-bottom': '8px'
         }, {
           activeCondition: props.desiredMajorPage() === MAJOR_PAGES.APPRECIATION,
           pixelMultiplier: 2,
           text: '|||{',
-          width: '36px'
+          width: '36px',
+          'margin-bottom': '8px'
         } ]}
       />
       <div>
@@ -42,6 +46,7 @@ export default function MainMenu(props) {
             pixelMultiplier: 2,
             text: 'About',
             width: '88px',
+            'margin-bottom': '8px',
             onClick: () => props.setDesiredMajorPage(MAJOR_PAGES.ABOUT)
           } ]}
         />
@@ -52,6 +57,7 @@ export default function MainMenu(props) {
             pixelMultiplier: 2,
             text: 'Work',
             width: '72px',
+            'margin-bottom': '8px',
             onClick: () => props.setDesiredMajorPage(MAJOR_PAGES.WORK)
           } ]}
         />
@@ -62,6 +68,7 @@ export default function MainMenu(props) {
             pixelMultiplier: 2,
             text: 'Links',
             width: '90px',
+            'margin-bottom': '8px',
             onClick: () => props.setDesiredMajorPage(MAJOR_PAGES.LINKS)
           } ]}
         />
@@ -72,6 +79,7 @@ export default function MainMenu(props) {
             pixelMultiplier: 2,
             text: 'Appreciation',
             width: '216px',
+            'margin-bottom': '8px',
             onClick: () => props.setDesiredMajorPage(MAJOR_PAGES.APPRECIATION)
           } ]}
         />

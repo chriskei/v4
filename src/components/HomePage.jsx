@@ -1,5 +1,5 @@
 import { createSignal } from 'solid-js';
-import { useMajorPageContext } from '../context/MajorPage';
+import { usePageContext } from '../context/Page';
 import { MAJOR_PAGES } from '../utils/majorPages';
 import FlyManager from './FlyManager';
 import MainMenu from './MainMenu';
@@ -8,7 +8,7 @@ import Continue from './Continue';
 export default function HomePage() {
   const {
     majorPage, setMajorPage
-  } = useMajorPageContext();
+  } = usePageContext();
   const [ desiredMajorPage, setDesiredMajorPage ] = createSignal(MAJOR_PAGES.ABOUT);
   const continueOnClick = () => setMajorPage(desiredMajorPage());
 

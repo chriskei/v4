@@ -4,7 +4,7 @@ import { render } from 'solid-js/web';
 import './index.css';
 import App from './App';
 import { VANILLA } from './utils/const';
-import { MajorPageContextProvider } from './context/MajorPage';
+import { PageContextProvider } from './context/Page';
 
 const root = document.getElementById('root');
 
@@ -17,8 +17,8 @@ if (import.meta.env.DEV && !(root instanceof HTMLElement)) {
 render(() => (
   <>
     <meta name='theme-color' content={VANILLA} />
-    <MajorPageContextProvider>
+    <PageContextProvider>
       <App />
-    </MajorPageContextProvider>
+    </PageContextProvider>
   </>),
 root);

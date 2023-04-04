@@ -2,22 +2,20 @@
   display: none;
 }
 
-@media screen and (min-width: 375px) {
-  .mobile_container {
-    display: flex;
-    flex-direction: column;
-    width: var(--MOBILE_WIDTH);
-    height: 100%;
-    margin: 0 auto;
-  }
+.mobile_container { 
+  display: flex;
+  flex-direction: column;
+  width: var(--MOBILE_WIDTH);
+  height: 100%;
+  margin: 0 auto;
+}
   
-  .tablet_container {
-    display: none;
-  }
+.tablet_container {
+  display: none;
+}
 
-  .desktop_container {
-    display: none;
-  }
+.desktop_container {
+  display: none;
 }
 
 @media screen and (min-width: 768px) {

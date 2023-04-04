@@ -1,10 +1,10 @@
-import { useMajorPageContext } from '../context/MajorPage';
+import { usePageContext } from '../context/Page';
 import { MAJOR_PAGES } from '../utils/majorPages';
 import FlyManager from './FlyManager';
 import Continue from './Continue';
 
 export default function LinksPage() {
-  const { majorPage } = useMajorPageContext();
+  const { majorPage } = usePageContext();
 
   return (
     <>
@@ -14,8 +14,7 @@ export default function LinksPage() {
           activeCondition: true,
           text: 'this is the links page! ok!',
           width: '5px',
-          height: '100px',
-          'margin-bottom': '8px'
+          height: '100px'
         } ]}
       />
       <Continue activeMajorPage={MAJOR_PAGES.LINKS} />

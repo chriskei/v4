@@ -6,6 +6,8 @@ import SwapManager from './SwapManager';
 // PROPS:
 //   activeCondition - boolean
 //   swapData - array<{ activeCondition, text, width, height, margin-bottom, onClick }>
+//   children - JSX
+//   childrenHeight - string
 export default function FlyManager(props) {
   const [ activeDisplay, setActiveDisplay ] = createSignal(false);
   const [ activeTransform, setActiveTransform ] = createSignal(false);
@@ -34,7 +36,13 @@ export default function FlyManager(props) {
       width: 'min-content',
       ...props.extraStyles
     }}>
-      <SwapManager swapData={props.swapData} activeTransform={activeTransform}/>
+      <SwapManager
+        swapData={props.swapData || []}
+        activeTransform={activeTransform}
+        childrenHeight={props.childrenHeight}
+      >
+        {props.children}
+      </SwapManager>
     </div>
   );
 }
