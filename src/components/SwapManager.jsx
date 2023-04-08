@@ -10,8 +10,9 @@ import { generateHiddenTransform } from '../utils/hidden';
 // PROPS:
 //   swapData - array<{ activeCondition, text, width, height, margin-bottom, onClick }>
 //   activeTransform - signal<boolean>
+//   assetHeight - string
+//   assetOnClick - func<null => null>
 //   children - JSX
-//   childrenHeight - string
 export default function SwapManager(props) {
   const [ activeSwapEle, setActiveSwapEle ] = createSignal({
     activeCondition: false,
@@ -32,18 +33,19 @@ export default function SwapManager(props) {
   const divData = () =>
     getDivs(activeSwapEle().text, activeSwapEle().pixelMultiplier || 1, MOBILE_WIDTH);
   const onClick = () => activeSwapEle().onClick ? activeSwapEle().onClick() : null;
-  const childrenHiddenTransform = generateHiddenTransform();
+  const assetHiddenTransform = generateHiddenTransform();
 
   return (
     <Show
       when={props.swapData.length > 0}
       fallback={
         <div
+          onClick={props.assetOnClick}
           style={{
             position: 'relative',
             transform: props.activeTransform()
               ? 'none'
-              : childrenHiddenTransform,
+              : assetHiddenTransform,
             transition: 'transform 1s'
           }}
         >
@@ -52,7 +54,7 @@ export default function SwapManager(props) {
             left: '-2px',
             top: '2px',
             width: '327px',
-            height: props.childrenHeight,
+            height: props.assetHeight,
             outline: `2px solid ${GOLD}`,
             'outline-offset': '4px',
             'z-index': -1
@@ -65,12 +67,12 @@ export default function SwapManager(props) {
         onClick={onClick}
         style={{
           width: activeSwapEle().width || `${MOBILE_WIDTH}px`,
-          height: activeSwapEle().height || '26px',
+          height: activeSwapEle().height || `${divData().totalDivHeight}px`,
           'margin-bottom': activeSwapEle()['margin-bottom'] || '16px',
           ...activeSwapEle().extraStyles
         }}
       >
-        <Index each={divData()}>
+        <Index each={divData().divs}>
           {ele => {
             const hiddenTransform = generateHiddenTransform();
 
@@ -89,6 +91,7 @@ export default function SwapManager(props) {
             />);
           }}
         </Index>
+        {props.children}
       </div>
     </Show>
   );

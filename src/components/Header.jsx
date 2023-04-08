@@ -16,7 +16,6 @@ export default function Header() {
           activeCondition: true,
           text: 'Chris Kei',
           pixelMultiplier: 2.5,
-          width: '198px',
           height: '33px',
           'margin-bottom': '8px'
         } ]}

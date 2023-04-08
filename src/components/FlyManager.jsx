@@ -6,8 +6,9 @@ import SwapManager from './SwapManager';
 // PROPS:
 //   activeCondition - boolean
 //   swapData - array<{ activeCondition, text, width, height, margin-bottom, onClick }>
+//   assetHeight - string
+//   assetOnClick - func<null => null>
 //   children - JSX
-//   childrenHeight - string
 export default function FlyManager(props) {
   const [ activeDisplay, setActiveDisplay ] = createSignal(false);
   const [ activeTransform, setActiveTransform ] = createSignal(false);
@@ -39,7 +40,8 @@ export default function FlyManager(props) {
       <SwapManager
         swapData={props.swapData || []}
         activeTransform={activeTransform}
-        childrenHeight={props.childrenHeight}
+        assetHeight={props.assetHeight}
+        assetOnClick={props.assetOnClick}
       >
         {props.children}
       </SwapManager>

@@ -41,6 +41,7 @@ export function getDivs(text, pixelMultiplier, parentWidth) {
 
   // Iterate over each character in each preformatted line
   const lines = preformat(text, pixelMultiplier, parentWidth);
+  const totalDivHeight = lines.length * PIXELS_PER_CHAR_HEIGHT * pixelMultiplier;
   for (const line of lines) {
     for (const char of line) {
       if (char === '|') {
@@ -89,5 +90,8 @@ export function getDivs(text, pixelMultiplier, parentWidth) {
     baseLeft = pixelMultiplier;
   }
 
-  return divs;
+  return {
+    totalDivHeight,
+    divs
+  };
 }

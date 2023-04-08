@@ -45,7 +45,8 @@ export default function MainMenu(props) {
             activeCondition: true,
             pixelMultiplier: 2,
             text: 'About',
-            width: '88px',
+            width: '307px',
+            height: '26px',
             'margin-bottom': '8px',
             onClick: () => props.setDesiredMajorPage(MAJOR_PAGES.ABOUT)
           } ]}
@@ -56,7 +57,8 @@ export default function MainMenu(props) {
             activeCondition: true,
             pixelMultiplier: 2,
             text: 'Work',
-            width: '72px',
+            width: '307px',
+            height: '26px',
             'margin-bottom': '8px',
             onClick: () => props.setDesiredMajorPage(MAJOR_PAGES.WORK)
           } ]}
@@ -67,7 +69,8 @@ export default function MainMenu(props) {
             activeCondition: true,
             pixelMultiplier: 2,
             text: 'Links',
-            width: '90px',
+            width: '307px',
+            height: '26px',
             'margin-bottom': '8px',
             onClick: () => props.setDesiredMajorPage(MAJOR_PAGES.LINKS)
           } ]}
@@ -78,7 +81,8 @@ export default function MainMenu(props) {
             activeCondition: true,
             pixelMultiplier: 2,
             text: 'Appreciation',
-            width: '216px',
+            width: '307px',
+            height: '26px',
             'margin-bottom': '8px',
             onClick: () => props.setDesiredMajorPage(MAJOR_PAGES.APPRECIATION)
           } ]}

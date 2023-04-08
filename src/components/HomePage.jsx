@@ -21,8 +21,7 @@ export default function HomePage() {
           activeCondition: true,
           pixelMultiplier: 4,
           text: 'Hello!',
-          width: '204px',
-          height: '52px'
+          width: '204px'
         } ]}
       />
       <MainMenu
