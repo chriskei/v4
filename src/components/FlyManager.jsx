@@ -32,11 +32,13 @@ export default function FlyManager(props) {
   });
 
   return (
-    <div style={{
-      display: activeDisplay() ? 'block' : 'none',
-      width: 'min-content',
-      ...props.extraStyles
-    }}>
+    <div
+      style={{
+        display: activeDisplay() ? 'block' : 'none',
+        width: 'min-content',
+        ...props.extraStyles
+      }}
+    >
       <SwapManager
         swapData={props.swapData || []}
         activeTransform={activeTransform}

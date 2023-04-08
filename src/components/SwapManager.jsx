@@ -49,16 +49,17 @@ export default function SwapManager(props) {
             transition: 'transform 1s'
           }}
         >
-          <div style={{
-            position: 'absolute',
-            left: '-2px',
-            top: '2px',
-            width: '327px',
-            height: props.assetHeight,
-            outline: `2px solid ${GOLD}`,
-            'outline-offset': '4px',
-            'z-index': -1
-          }}/>
+          <div
+            style={{
+              position: 'absolute',
+              left: '-2px',
+              top: '2px',
+              width: '327px',
+              height: props.assetHeight,
+              outline: `2px solid ${GOLD}`,
+              'outline-offset': '4px',
+              'z-index': -1
+            }}/>
           {props.children}
         </div>
       }
