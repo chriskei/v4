@@ -79,7 +79,7 @@ export default function Copy(props) {
               height: `${ele.assetHeight}px`,
               'margin-bottom': '20px'
             }}
-            childrenHeight={`${ele.assetHeight}px`}
+            assetHeight={`${ele.assetHeight}px`}
           >
             <video
               controls

@@ -1,19 +1,19 @@
 export function generateHiddenTransform() {
-  const random1 = Math.random();
-  const random2 = Math.random();
-  const random2Rounded = Math.round(random2 * 100);
+  const locationRandom = Math.random();
+  const translateRandom = Math.random();
+  const translateRandomRounded = Math.round(translateRandom * 100);
 
-  if (random1 < 0.25) {
-    return `translate(-100vw, ${random2Rounded}vh)`;
+  if (locationRandom < 0.25) {
+    return `translate(-100vw, ${translateRandomRounded}vh)`;
   }
 
-  if (random1 < 0.5) {
-    return `translate(200vw, ${random2Rounded}vh)`;
+  if (locationRandom < 0.5) {
+    return `translate(200vw, ${translateRandomRounded}vh)`;
   }
 
-  if (random1 < 0.75) {
-    return `translate(${random2Rounded}vw, -100vh)`;
+  if (locationRandom < 0.75) {
+    return `translate(${translateRandomRounded}vw, -100vh)`;
   }
 
-  return `translate(${random2Rounded}vw, 200vh)`;
+  return `translate(${translateRandomRounded}vw, 200vh)`;
 }

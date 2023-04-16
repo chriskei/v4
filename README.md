@@ -32,3 +32,7 @@ Your app is ready to be deployed!
 ## Deployment
 
 You can deploy the `dist` folder to any static host provider (netlify, surge, now, etc.)
+
+# TODO
+- [] Fix mobile lag - maybe just use one swap manager? so divs start in random positions offscreen fly in, fly out, swap to different divs with different start positions (don't see any new divs get randomly added because we are offscreen), fly in
+- [] Fix mobile videos not appearing
