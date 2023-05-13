@@ -49,7 +49,7 @@ export const aboutPageCopy = [
   [
     {
       type: 'text',
-      text: "When I'm not working or being physically active, you'll likely find me in my kitchen cooking. My favorite dishes to make are ones where you can throw everything in a pot, turn on the stove, and let the flavors compound - think Chinese beef brisket noodle soup, steamed spareribs and taro in black bean sauce, and red wine braised short ribs over mashed potatoes."
+      text: "When I'm not working or being physically active, you'll likely find me in my kitchen cooking. My favorite dishes to make are ones where you can throw everything in a pot, turn on the stove, and let the flavors compound - think Chinese beef brisket noodle soup, steamed spareribs and taro in black bean sauce, and red wine braised short ribs over mashed potatoes. I always tell my parents, <When I have 8 million in savings, I'm going to open my own restaurant!>. I truly hope that that becomes reality one day as I'd love to share my food and culture with others."
     },
     {
       type: 'text',

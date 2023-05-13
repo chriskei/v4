@@ -7,16 +7,17 @@ const PageContext = createContext();
 
 export function PageContextProvider(props) {
   const [ majorPage, setMajorPage ] = createSignal(MAJOR_PAGES.HOME);
-  const [ aboutPageIdx, setAboutPageIdx ] = createSignal(0);
+  const [ majorPageIdx, setMajorPageIdx ] = createSignal(0);
 
   return (
     <PageContext.Provider
       value={{
         majorPage,
         setMajorPage,
-        aboutPageIdx,
-        setAboutPageIdx
-      }}>
+        majorPageIdx,
+        setMajorPageIdx
+      }}
+    >
       {props.children}
     </PageContext.Provider>
   );

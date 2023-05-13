@@ -32,16 +32,16 @@ function preformat(text, pixelMultiplier, parentWidth) {
 }
 
 export function getDivs(text, pixelMultiplier, parentWidth) {
+  // Accumulator
+  const divs = [];
+
   // Keep count of base positions since we work in smaller rectangles
   let baseTop = 0;
   let baseLeft = pixelMultiplier;
 
-  // Accumulator
-  const divs = [];
-
   // Iterate over each character in each preformatted line
   const lines = preformat(text, pixelMultiplier, parentWidth);
-  const totalDivHeight = lines.length * PIXELS_PER_CHAR_HEIGHT * pixelMultiplier;
+  const divsHeight = lines.length * PIXELS_PER_CHAR_HEIGHT * pixelMultiplier;
   for (const line of lines) {
     for (const char of line) {
       if (char === '|') {
@@ -70,7 +70,7 @@ export function getDivs(text, pixelMultiplier, parentWidth) {
 
           if (hasShadow) {
             divs.push({
-              left: divLeft - (pixelMultiplier),
+              left: divLeft - pixelMultiplier,
               top: divTop + pixelMultiplier,
               width: divWidth,
               height: divHeight,
@@ -91,7 +91,7 @@ export function getDivs(text, pixelMultiplier, parentWidth) {
   }
 
   return {
-    totalDivHeight,
+    divsHeight,
     divs
   };
 }

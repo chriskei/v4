@@ -12,6 +12,7 @@ module.exports = {
   },
   rules: {
     'array-bracket-spacing': [ 'error', 'always' ],
+    'capitalized-comments': 'off',
     'comma-dangle': [ 'error', 'never' ],
     complexity: 'off',
     indent: [ 'error', 2 ],
@@ -20,6 +21,7 @@ module.exports = {
     'object-curly-newline': [ 'error', { minProperties: 2 } ],
     'object-curly-spacing': [ 'error', 'always' ],
     'object-property-newline': 'error',
+    'no-warning-comments': 'off',
     quotes: [ 'error', 'single', { avoidEscape: true } ],
     semi: [ 'error', 'always' ]
   }
