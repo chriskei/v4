@@ -4,10 +4,11 @@ import {
 import { usePageContext } from '../context/Page';
 import { getAssetDivs } from '../font/asset';
 import { MOBILE_WIDTH } from '../utils/const';
-import { generateHiddenTransform } from '../utils/hidden';
+import { getHiddenTransform } from '../utils/hidden';
 import { ASSET_TYPES } from '../utils/assetTypes';
 
 // PROPS
+// delay: number
 // data: array of objects
 //   activeMajorPage: number
 //   activeMajorPageIdx: number
@@ -63,7 +64,7 @@ export default function AssetManager(props) {
         setCurrentHeight(height);
         setCurrentPixelMultiplier(pixelMultiplier);
         setCurrentLinkHref(linkHref);
-      }, 500);
+      }, props.delay + 500);
 
       onCleanup(() => {
         clearInterval(hideAssetTimer);
@@ -75,7 +76,7 @@ export default function AssetManager(props) {
   // Show asset after it swaps in a separate createEffect to avoid overwriting
   createEffect(() => {
     if (!showAsset()) {
-      const showAssetTimer = setTimeout(() => setShowAsset(true), 1000);
+      const showAssetTimer = setTimeout(() => setShowAsset(true), props.delay + 1000);
 
       onCleanup(() => {
         clearInterval(showAssetTimer);
@@ -91,8 +92,8 @@ export default function AssetManager(props) {
       }}
     >
       <Index each={currentAssetOutlineDivs()}>
-        {ele => {
-          const hiddenTransform = generateHiddenTransform();
+        {(ele, idx) => {
+          const hiddenTransform = getHiddenTransform(idx);
 
           return (<div
             style={{
@@ -101,6 +102,7 @@ export default function AssetManager(props) {
               height: `${ele().height}px`,
               'z-index': ele()['z-index'],
               'background-color': ele()['background-color'],
+              'will-change': 'transform',
               transform: showAsset()
                 ? `translate(${ele().left}px, ${ele().top}px)`
                 : hiddenTransform,
@@ -111,7 +113,8 @@ export default function AssetManager(props) {
       </Index>
       <div style={{
         position: 'absolute',
-        transform: showAsset() ? 'translate(8px, 10px)' : generateHiddenTransform(),
+        'will-change': 'transform',
+        transform: showAsset() ? 'translate(8px, 10px)' : getHiddenTransform(currentHeight()),
         transition: 'transform 1s'
       }}
       >

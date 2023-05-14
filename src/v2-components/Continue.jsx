@@ -17,9 +17,13 @@ export default function Continue() {
   return (
     <div
       id='continue'
-      style={{ margin: 'auto auto 1rem' }}
+      style={{
+        margin: 'auto auto 1rem',
+        width: '34px'
+      }}
     >
       <TextManager
+        delay={0}
         data={[
           {
             activeMajorPage: majorPage(),
@@ -31,7 +35,8 @@ export default function Continue() {
         ]}
         parentDivAdditionalStyles={{
           position: 'relative',
-          left: '-8px'
+          left: '8px',
+          top: '4px'
         }}
       />
     </div>

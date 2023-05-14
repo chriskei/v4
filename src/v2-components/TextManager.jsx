@@ -4,9 +4,10 @@ import {
 import { usePageContext } from '../context/Page';
 import { getDivs } from '../font/text';
 import { MOBILE_WIDTH } from '../utils/const';
-import { generateHiddenTransform } from '../utils/hidden';
+import { getHiddenTransform } from '../utils/hidden';
 
 // PROPS
+// delay: number
 // data: array of objects
 //   activeMajorPage: number
 //   activeMajorPageIdx: number
@@ -42,7 +43,7 @@ export default function TextManager(props) {
         setCurrentText(text);
         setCurrentPixelMultiplier(pixelMultiplier);
         setCurrentOnClick(() => onClick);
-      }, 1000);
+      }, props.delay + 500);
 
       onCleanup(() => {
         clearInterval(hideTextTimer);
@@ -54,7 +55,7 @@ export default function TextManager(props) {
   // Show text after it swaps in a separate createEffect to avoid setCurrentText overwriting
   createEffect(() => {
     if (!showText()) {
-      const showTextTimer = setTimeout(() => setShowText(true), 2000);
+      const showTextTimer = setTimeout(() => setShowText(true), props.delay + 1000);
 
       onCleanup(() => {
         clearInterval(showTextTimer);
@@ -71,8 +72,8 @@ export default function TextManager(props) {
       onClick={() => currentOnClick()()}
     >
       <Index each={currentTextGetDivs().divs}>
-        {ele => {
-          const hiddenTransform = generateHiddenTransform();
+        {(ele, idx) => {
+          const hiddenTransform = getHiddenTransform(idx);
 
           return (<div
             style={{
@@ -81,10 +82,11 @@ export default function TextManager(props) {
               height: `${ele().height}px`,
               'z-index': ele()['z-index'],
               'background-color': ele()['background-color'],
+              'will-change': 'transform',
               transform: showText()
                 ? `translate(${ele().left}px, ${ele().top}px)`
                 : hiddenTransform,
-              transition: 'transform 2s'
+              transition: 'transform 1s'
             }}
           />);
         }}
