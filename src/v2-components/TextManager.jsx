@@ -38,12 +38,12 @@ export default function TextManager(props) {
       onClick: () => null
     };
     if (text !== currentText() || pixelMultiplier !== currentPixelMultiplier()) {
-      const hideTextTimer = setTimeout(() => setShowText(false), 0);
+      const hideTextTimer = setTimeout(() => setShowText(false), props.delay);
       const swapTextTimer = setTimeout(() => {
         setCurrentText(text);
         setCurrentPixelMultiplier(pixelMultiplier);
         setCurrentOnClick(() => onClick);
-      }, props.delay + 500);
+      }, props.delay + 750);
 
       onCleanup(() => {
         clearInterval(hideTextTimer);
@@ -86,7 +86,7 @@ export default function TextManager(props) {
               transform: showText()
                 ? `translate(${ele().left}px, ${ele().top}px)`
                 : hiddenTransform,
-              transition: 'transform 1s'
+              transition: 'transform 1s ease-in-out'
             }}
           />);
         }}

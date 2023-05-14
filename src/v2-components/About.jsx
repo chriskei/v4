@@ -7,7 +7,7 @@ export default function About() {
   return (
     <div id='about'>
       <TextManager
-        delay={0}
+        delay={100}
         data={[
           {
             activeMajorPage: MAJOR_PAGES.ABOUT,
@@ -18,7 +18,7 @@ export default function About() {
         ]}
       />
       <AssetManager
-        delay={250}
+        delay={100}
         data={[
           {
             activeMajorPage: MAJOR_PAGES.ABOUT,
@@ -31,8 +31,8 @@ export default function About() {
           }
         ]}
       />
-      <TextManager
-        delay={500}
+      {/* <TextManager
+        delay={200}
         data={[
           {
             activeMajorPage: MAJOR_PAGES.ABOUT,
@@ -41,7 +41,7 @@ export default function About() {
             pixelMultiplier: 1
           }
         ]}
-      />
+      /> */}
     </div>
   );
 }

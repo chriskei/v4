@@ -22,7 +22,7 @@ export default function Header() {
         parentDivAdditionalStyles={{ 'margin-top': '1rem' }}
       />
       <TextManager
-        delay={0}
+        delay={100}
         data={[
           {
             activeMajorPage: MAJOR_PAGES.ABOUT,
@@ -65,6 +65,7 @@ export default function Header() {
             }
           }
         ]}
+        parentDivAdditionalStyles={{ cursor: 'pointer' }}
       />
     </div>
   );

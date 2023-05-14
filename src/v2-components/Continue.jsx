@@ -23,7 +23,7 @@ export default function Continue() {
       }}
     >
       <TextManager
-        delay={0}
+        delay={100}
         data={[
           {
             activeMajorPage: majorPage(),
@@ -36,7 +36,8 @@ export default function Continue() {
         parentDivAdditionalStyles={{
           position: 'relative',
           left: '8px',
-          top: '4px'
+          top: '4px',
+          cursor: 'pointer'
         }}
       />
     </div>

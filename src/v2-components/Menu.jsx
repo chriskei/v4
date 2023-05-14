@@ -33,7 +33,7 @@ export default function Menu() {
     <div id='menu'>
       <div style={{ display: 'flex' }}>
         <TextManager
-          delay={0}
+          delay={100}
           data={[
             {
               activeMajorPage: MAJOR_PAGES.HOME,

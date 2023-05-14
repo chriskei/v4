@@ -56,7 +56,7 @@ export default function AssetManager(props) {
       || pixelMultiplier !== currentPixelMultiplier()
       || linkHref !== currentLinkHref()
     ) {
-      const hideAssetTimer = setTimeout(() => setShowAsset(false), 0);
+      const hideAssetTimer = setTimeout(() => setShowAsset(false), props.delay);
       const swapAssetTimer = setTimeout(() => {
         setCurrentType(type);
         setCurrentFilePath(filePath);
@@ -64,7 +64,7 @@ export default function AssetManager(props) {
         setCurrentHeight(height);
         setCurrentPixelMultiplier(pixelMultiplier);
         setCurrentLinkHref(linkHref);
-      }, props.delay + 500);
+      }, props.delay + 750);
 
       onCleanup(() => {
         clearInterval(hideAssetTimer);
@@ -106,7 +106,7 @@ export default function AssetManager(props) {
               transform: showAsset()
                 ? `translate(${ele().left}px, ${ele().top}px)`
                 : hiddenTransform,
-              transition: 'transform 1s'
+              transition: 'transform 1s ease-in-out'
             }}
           />);
         }}
@@ -115,7 +115,7 @@ export default function AssetManager(props) {
         position: 'absolute',
         'will-change': 'transform',
         transform: showAsset() ? 'translate(8px, 10px)' : getHiddenTransform(currentHeight()),
-        transition: 'transform 1s'
+        transition: 'transform 1s cubic-bezier(0.2, 0.4, 0.3, 1)'
       }}
       >
         <Show
