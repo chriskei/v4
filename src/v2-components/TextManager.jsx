@@ -69,7 +69,7 @@ export default function TextManager(props) {
         height: `${currentTextGetDivs().divsHeight}px`,
         ...props.parentDivAdditionalStyles
       }}
-      onClick={() => currentOnClick()()}
+      onClick={() => currentOnClick() && currentOnClick()()}
     >
       <Index each={currentTextGetDivs().divs}>
         {(ele, idx) => {

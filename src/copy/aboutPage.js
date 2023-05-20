@@ -23,11 +23,11 @@ export const aboutPageCopy = [
   [
     {
       type: 'text',
-      text: 'One of the most prominent characteristics of me is that I love being active. Going on a 12 mile hike with friends, seeing a beautiful sunset, chowing down on some korean BBQ, and then waking up completely sore the next morning is what I live for!'
+      text: 'One of the first things you should know about me is that I love being active. Going on a 12 mile hike with friends, seeing a beautiful sunset, chowing down on some korean BBQ, and then waking up completely sore the next morning is what I live for!'
     },
     {
       type: 'text',
-      text: 'Of course, as a software engineer who sits at his desk for 80% of the day, it almost never looks like that (although I wish it did!). My daily workout usually consists of an hour long mixture of abs on my yoga mat and either arms or legs using dumbbells I got at the start of the Covid days.'
+      text: 'Of course, as a software engineer who sits at his desk 80% of the time, my days rarely look like that (although I wish they did!). Instead, I workout daily with a mixture of roll ups, flutter kicks, side planks, Arnold presses, tricep kickbacks, push-ups, squats, and other fun exercises.'
     },
     {
       type: 'text',

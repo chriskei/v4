@@ -12,7 +12,7 @@ import { ASSET_TYPES } from '../utils/assetTypes';
 // data: array of objects
 //   activeMajorPage: number
 //   activeMajorPageIdx: number
-//   type: string
+//   contentType: string
 //   filePath: string
 //   altText: string
 //   height: number
@@ -24,7 +24,7 @@ export default function AssetManager(props) {
     majorPage, majorPageIdx
   } = usePageContext();
   const [ showAsset, setShowAsset ] = createSignal(false);
-  const [ currentType, setCurrentType ] = createSignal('');
+  const [ currentContentType, setCurrentContentType ] = createSignal('');
   const [ currentFilePath, setCurrentFilePath ] = createSignal('');
   const [ currentAltText, setCurrentAltText ] = createSignal('');
   const [ currentHeight, setCurrentHeight ] = createSignal(0);
@@ -36,12 +36,12 @@ export default function AssetManager(props) {
   // Swap asset whenever context changes
   createEffect(() => {
     const {
-      type, filePath, altText, height, pixelMultiplier, linkHref
+      contentType, filePath, altText, height, pixelMultiplier, linkHref
     } = props.data.find(({
       activeMajorPage, activeMajorPageIdx
     }) => activeMajorPage === majorPage() && activeMajorPageIdx === majorPageIdx())
     || {
-      type: '',
+      contentType: '',
       filePath: '',
       altText: '',
       height: 0,
@@ -49,7 +49,7 @@ export default function AssetManager(props) {
       linkHref: ''
     };
     if (
-      type !== currentType()
+      contentType !== currentContentType()
       || filePath !== currentFilePath()
       || altText !== currentAltText()
       || height !== currentHeight()
@@ -58,7 +58,7 @@ export default function AssetManager(props) {
     ) {
       const hideAssetTimer = setTimeout(() => setShowAsset(false), props.delay);
       const swapAssetTimer = setTimeout(() => {
-        setCurrentType(type);
+        setCurrentContentType(contentType);
         setCurrentFilePath(filePath);
         setCurrentAltText(altText);
         setCurrentHeight(height);
@@ -119,13 +119,14 @@ export default function AssetManager(props) {
       }}
       >
         <Show
-          when={currentType() === ASSET_TYPES.IMAGE}
+          when={currentContentType() === ASSET_TYPES.IMAGE}
         >
-          <img src={currentFilePath()} alt={currentAltText()} width='327' />
-          <a href={currentLinkHref()} target='_blank' />
+          <a href={currentLinkHref()} target='_blank'>
+            <img src={currentFilePath()} alt={currentAltText()} width='327' />
+          </a>
         </Show>
         <Show
-          when={currentType() === ASSET_TYPES.VIDEO}
+          when={currentContentType() === ASSET_TYPES.VIDEO}
         >
           <video
             controls

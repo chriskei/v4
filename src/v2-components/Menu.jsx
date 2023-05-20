@@ -7,31 +7,48 @@ import TextManager from './TextManager';
 
 // TODO: make this swap instead of fly
 export default function Menu() {
-  const { majorPageIdx } = usePageContext();
+  const {
+    majorPageIdx, setDesiredMajorPage
+  } = usePageContext();
   const [ selectStr, setSelectStr ] = createSignal('{');
 
   const options = [
     {
       option: 'About',
-      onClick: () => setSelectStr('{')
+      onClick() {
+        setSelectStr('{');
+        setDesiredMajorPage(MAJOR_PAGES.ABOUT);
+      }
     },
     {
       option: 'Work',
-      onClick: () => setSelectStr('|{')
+      onClick() {
+        setSelectStr('|{');
+        setDesiredMajorPage(MAJOR_PAGES.WORK);
+      }
     },
     {
       option: 'Links',
-      onClick: () => setSelectStr('||{')
+      onClick() {
+        setSelectStr('||{');
+        setDesiredMajorPage(MAJOR_PAGES.LINKS);
+      }
     },
     {
       option: 'Appreciation',
-      onClick: () => setSelectStr('|||{')
+      onClick() {
+        setSelectStr('|||{');
+        setDesiredMajorPage(MAJOR_PAGES.APPRECIATION);
+      }
     }
   ];
 
   return (
     <div id='menu'>
-      <div style={{ display: 'flex' }}>
+      <div style={{
+        display: 'flex',
+        'margin-top': '1rem'
+      }}>
         <TextManager
           delay={100}
           data={[

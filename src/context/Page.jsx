@@ -8,6 +8,7 @@ const PageContext = createContext();
 export function PageContextProvider(props) {
   const [ majorPage, setMajorPage ] = createSignal(MAJOR_PAGES.HOME);
   const [ majorPageIdx, setMajorPageIdx ] = createSignal(0);
+  const [ desiredMajorPage, setDesiredMajorPage ] = createSignal(MAJOR_PAGES.ABOUT);
 
   return (
     <PageContext.Provider
@@ -15,7 +16,9 @@ export function PageContextProvider(props) {
         majorPage,
         setMajorPage,
         majorPageIdx,
-        setMajorPageIdx
+        setMajorPageIdx,
+        desiredMajorPage,
+        setDesiredMajorPage
       }}
     >
       {props.children}

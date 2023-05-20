@@ -16,15 +16,15 @@ export function getAssetDivs(height, pixelMultiplier, parentWidth) {
     left: 0,
     top: 0,
     width: parentWidth,
-    height: pixelMultiplier,
+    height: pixelMultiplier * 2,
     'background-color': BLACK,
     'z-index': 2
   });
   divs.push({
-    left: -pixelMultiplier,
-    top: pixelMultiplier,
+    left: -(pixelMultiplier * 2),
+    top: pixelMultiplier * 2,
     width: parentWidth,
-    height: pixelMultiplier,
+    height: pixelMultiplier * 2,
     'background-color': GOLD,
     'z-index': 1
   });
@@ -33,15 +33,15 @@ export function getAssetDivs(height, pixelMultiplier, parentWidth) {
   divs.push({
     left: parentWidth,
     top: 0,
-    width: pixelMultiplier,
+    width: pixelMultiplier * 2,
     height: height + 16,
     'background-color': BLACK,
     'z-index': 2
   });
   divs.push({
-    left: parentWidth - pixelMultiplier,
-    top: pixelMultiplier,
-    width: pixelMultiplier,
+    left: parentWidth - (pixelMultiplier * 2),
+    top: pixelMultiplier * 2,
+    width: pixelMultiplier * 2,
     height: height + 16,
     'background-color': GOLD,
     'z-index': 1
@@ -52,15 +52,15 @@ export function getAssetDivs(height, pixelMultiplier, parentWidth) {
     left: 0,
     top: height + 16,
     width: parentWidth + 2,
-    height: pixelMultiplier,
+    height: pixelMultiplier * 2,
     'background-color': BLACK,
     'z-index': 2
   });
   divs.push({
-    left: 0 - pixelMultiplier,
-    top: height + 16 + pixelMultiplier,
+    left: 0 - (pixelMultiplier * 2),
+    top: height + 16 + (pixelMultiplier * 2),
     width: parentWidth + 2,
-    height: pixelMultiplier,
+    height: pixelMultiplier * 2,
     'background-color': GOLD,
     'z-index': 1
   });
@@ -69,15 +69,15 @@ export function getAssetDivs(height, pixelMultiplier, parentWidth) {
   divs.push({
     left: 0,
     top: 0,
-    width: pixelMultiplier,
+    width: pixelMultiplier * 2,
     height: height + 16,
     'background-color': BLACK,
     'z-index': 2
   });
   divs.push({
-    left: -pixelMultiplier,
-    top: pixelMultiplier,
-    width: pixelMultiplier,
+    left: -(pixelMultiplier * 2),
+    top: pixelMultiplier * 2,
+    width: pixelMultiplier * 2,
     height: height + 16,
     'background-color': GOLD,
     'z-index': 1
