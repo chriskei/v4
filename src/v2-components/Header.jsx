@@ -10,7 +10,6 @@ export default function Header() {
   return (
     <div id='header'>
       <TextManager
-        delay={0}
         data={[
           {
             activeMajorPage: majorPage(),
@@ -22,7 +21,6 @@ export default function Header() {
         parentDivAdditionalStyles={{ 'margin-top': '1rem' }}
       />
       <TextManager
-        delay={100}
         data={[
           {
             activeMajorPage: MAJOR_PAGES.ABOUT,

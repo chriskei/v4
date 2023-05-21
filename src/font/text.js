@@ -1,6 +1,6 @@
 import { charToRects } from './chars';
 import {
-  PIXELS_PER_CHAR_WIDTH, PIXELS_PER_CHAR_HEIGHT, BLACK, GOLD
+  PIXELS_PER_CHAR_WIDTH, PIXELS_PER_CHAR_HEIGHT, BLACK
 } from '../utils/const';
 
 function preformat(text, pixelMultiplier, parentWidth) {
@@ -52,13 +52,14 @@ export function getDivs(text, pixelMultiplier, parentWidth) {
         const rects = charToRects[char];
 
         // Iterate over each rectangle in the array
-        for (const [ row, col, width, height, hasShadow ] of rects) {
+        for (const [ row, col, width, height ] of rects) {
         // Use pixelMultiplier to account for other pixel scales
           const divTop = baseTop + (row * pixelMultiplier);
           const divLeft = baseLeft + (col * pixelMultiplier);
           const divWidth = width * pixelMultiplier;
           const divHeight = height * pixelMultiplier;
 
+          // Generic div info
           divs.push({
             left: divLeft,
             top: divTop,
@@ -67,17 +68,6 @@ export function getDivs(text, pixelMultiplier, parentWidth) {
             'background-color': BLACK,
             'z-index': 2
           });
-
-          if (hasShadow) {
-            divs.push({
-              left: divLeft - pixelMultiplier,
-              top: divTop + pixelMultiplier,
-              width: divWidth,
-              height: divHeight,
-              'background-color': GOLD,
-              'z-index': 1
-            });
-          }
         }
 
         // After each character, move baseLeft over

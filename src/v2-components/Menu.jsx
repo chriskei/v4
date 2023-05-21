@@ -50,7 +50,6 @@ export default function Menu() {
         'margin-top': '1rem'
       }}>
         <TextManager
-          delay={100}
           data={[
             {
               activeMajorPage: MAJOR_PAGES.HOME,
@@ -69,7 +68,6 @@ export default function Menu() {
             {({
               option, onClick
             }) => <TextManager
-              delay={0}
               data={[
                 {
                   activeMajorPage: MAJOR_PAGES.HOME,

@@ -3,11 +3,12 @@ import {
 } from 'solid-js';
 import { usePageContext } from '../context/Page';
 import { getDivs } from '../font/text';
-import { MOBILE_WIDTH } from '../utils/const';
+import {
+  BLACK, GOLD, MOBILE_WIDTH
+} from '../utils/const';
 import { getHiddenTransform } from '../utils/hidden';
 
 // PROPS
-// delay: number
 // data: array of objects
 //   activeMajorPage: number
 //   activeMajorPageIdx: number
@@ -38,12 +39,12 @@ export default function TextManager(props) {
       onClick: () => null
     };
     if (text !== currentText() || pixelMultiplier !== currentPixelMultiplier()) {
-      const hideTextTimer = setTimeout(() => setShowText(false), props.delay);
+      const hideTextTimer = setTimeout(() => setShowText(false), 0);
       const swapTextTimer = setTimeout(() => {
         setCurrentText(text);
         setCurrentPixelMultiplier(pixelMultiplier);
         setCurrentOnClick(() => onClick);
-      }, props.delay + 750);
+      }, 500);
 
       onCleanup(() => {
         clearInterval(hideTextTimer);
@@ -55,7 +56,7 @@ export default function TextManager(props) {
   // Show text after it swaps in a separate createEffect to avoid setCurrentText overwriting
   createEffect(() => {
     if (!showText()) {
-      const showTextTimer = setTimeout(() => setShowText(true), props.delay + 1000);
+      const showTextTimer = setTimeout(() => setShowText(true), 1000);
 
       onCleanup(() => {
         clearInterval(showTextTimer);
@@ -75,20 +76,39 @@ export default function TextManager(props) {
         {(ele, idx) => {
           const hiddenTransform = getHiddenTransform(idx);
 
-          return (<div
-            style={{
-              position: 'absolute',
-              width: `${ele().width}px`,
-              height: `${ele().height}px`,
-              'z-index': ele()['z-index'],
-              'background-color': ele()['background-color'],
-              'will-change': 'transform',
-              transform: showText()
-                ? `translate(${ele().left}px, ${ele().top}px)`
-                : hiddenTransform,
-              transition: 'transform 1s ease-in-out'
-            }}
-          />);
+          return (
+            <div
+              style={{
+                position: 'absolute',
+                'will-change': 'transform',
+                transform: showText()
+                  ? `translate(${ele().left}px, ${ele().top}px)`
+                  : hiddenTransform,
+                transition: 'transform 1s ease-in-out'
+              }}
+            >
+              <div
+                style={{
+                  position: 'absolute',
+                  width: `${ele().width}px`,
+                  height: `${ele().height}px`,
+                  'background-color': BLACK,
+                  'z-index': 2
+                }}
+              />
+              <div
+                style={{
+                  position: 'absolute',
+                  width: `${ele().width}px`,
+                  height: `${ele().height}px`,
+                  'background-color': GOLD,
+                  'z-index': 1,
+                  transform:
+                    `translate(${-currentPixelMultiplier()}px, ${currentPixelMultiplier()}px)`
+                }}
+              />
+            </div>
+          );
         }}
       </Index>
     </div>

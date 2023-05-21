@@ -8,7 +8,6 @@ import { getHiddenTransform } from '../utils/hidden';
 import { ASSET_TYPES } from '../utils/assetTypes';
 
 // PROPS
-// delay: number
 // data: array of objects
 //   activeMajorPage: number
 //   activeMajorPageIdx: number
@@ -56,7 +55,7 @@ export default function AssetManager(props) {
       || pixelMultiplier !== currentPixelMultiplier()
       || linkHref !== currentLinkHref()
     ) {
-      const hideAssetTimer = setTimeout(() => setShowAsset(false), props.delay);
+      const hideAssetTimer = setTimeout(() => setShowAsset(false), 0);
       const swapAssetTimer = setTimeout(() => {
         setCurrentContentType(contentType);
         setCurrentFilePath(filePath);
@@ -64,7 +63,7 @@ export default function AssetManager(props) {
         setCurrentHeight(height);
         setCurrentPixelMultiplier(pixelMultiplier);
         setCurrentLinkHref(linkHref);
-      }, props.delay + 750);
+      }, 500);
 
       onCleanup(() => {
         clearInterval(hideAssetTimer);
@@ -76,7 +75,7 @@ export default function AssetManager(props) {
   // Show asset after it swaps in a separate createEffect to avoid overwriting
   createEffect(() => {
     if (!showAsset()) {
-      const showAssetTimer = setTimeout(() => setShowAsset(true), props.delay + 1000);
+      const showAssetTimer = setTimeout(() => setShowAsset(true), 1000);
 
       onCleanup(() => {
         clearInterval(showAssetTimer);

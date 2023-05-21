@@ -36,7 +36,6 @@ export default function Continue() {
       }}
     >
       <TextManager
-        delay={100}
         data={[
           {
             activeMajorPage: majorPage(),
