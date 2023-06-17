@@ -47,7 +47,8 @@ export default function Menu() {
     <div id='menu'>
       <div style={{
         display: 'flex',
-        'margin-top': '1rem'
+        position: 'relative',
+        top: '1rem'
       }}>
         <TextManager
           data={[

@@ -23,6 +23,7 @@ module.exports = {
     'object-property-newline': 'error',
     'no-warning-comments': 'off',
     quotes: [ 'error', 'single', { avoidEscape: true } ],
-    semi: [ 'error', 'always' ]
+    semi: [ 'error', 'always' ],
+    'spaced-comment': 'off'
   }
 };

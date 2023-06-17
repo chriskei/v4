@@ -29,6 +29,7 @@ export default function AssetManager(props) {
   const [ currentHeight, setCurrentHeight ] = createSignal(0);
   const [ currentPixelMultiplier, setCurrentPixelMultiplier ] = createSignal(0);
   const [ currentLinkHref, setCurrentLinkHref ] = createSignal('');
+  const [ assetJsx, setAssetJsx ] = createSignal(null);
   const currentAssetOutlineDivs = () =>
     getAssetDivs(currentHeight(), currentPixelMultiplier(), MOBILE_WIDTH);
 
@@ -63,6 +64,48 @@ export default function AssetManager(props) {
         setCurrentHeight(height);
         setCurrentPixelMultiplier(pixelMultiplier);
         setCurrentLinkHref(linkHref);
+        setAssetJsx(<div style={{
+          position: 'absolute',
+          'will-change': 'transform',
+          transform: showAsset() ? 'translate(8px, 10px)' : getHiddenTransform(currentHeight()),
+          transition: 'transform 1s ease-in-out'
+        }}
+        >
+          <Show
+            when={currentContentType() === ASSET_TYPES.IMAGE}
+          >
+            <a
+              href={currentLinkHref()}
+              target='_blank'
+              style={{ 'will-change': 'transform' }}
+            >
+              <img
+                src={currentFilePath()}
+                alt={currentAltText()}
+                width='327'
+                style={{ 'will-change': 'transform' }}
+              />
+            </a>
+          </Show>
+          <Show
+            when={currentContentType() === ASSET_TYPES.VIDEO}
+          >
+            <video
+              controls
+              disablepictureinpicture
+              width='327'
+              style={{ 'will-change': 'transform' }}
+            >
+              <source
+                src={currentFilePath()}
+                type='video/mp4'
+                style={{ 'will-change': 'transform' }}
+              >
+                {currentAltText()}
+              </source>
+            </video>
+          </Show>
+        </div>);
       }, 500);
 
       onCleanup(() => {
@@ -110,36 +153,7 @@ export default function AssetManager(props) {
           />);
         }}
       </Index>
-      <div style={{
-        position: 'absolute',
-        'will-change': 'transform',
-        transform: showAsset() ? 'translate(8px, 10px)' : getHiddenTransform(currentHeight()),
-        transition: 'transform 1s cubic-bezier(0.2, 0.4, 0.3, 1)'
-      }}
-      >
-        <Show
-          when={currentContentType() === ASSET_TYPES.IMAGE}
-        >
-          <a href={currentLinkHref()} target='_blank'>
-            <img src={currentFilePath()} alt={currentAltText()} width='327' />
-          </a>
-        </Show>
-        <Show
-          when={currentContentType() === ASSET_TYPES.VIDEO}
-        >
-          <video
-            controls
-            disablepictureinpicture
-            width='327'
-          >
-            <source src={currentFilePath()} type='video/webm'>
-              {currentAltText()}
-            </source>
-          </video>
-        </Show>
-      </div>
+      {assetJsx()}
     </div>
   );
 }
-
-// TODO: check videos on mobile

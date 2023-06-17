@@ -93,7 +93,8 @@ export default function TextManager(props) {
                   width: `${ele().width}px`,
                   height: `${ele().height}px`,
                   'background-color': BLACK,
-                  'z-index': 2
+                  'z-index': 2,
+                  'will-change': 'transform'
                 }}
               />
               <div
@@ -103,6 +104,7 @@ export default function TextManager(props) {
                   height: `${ele().height}px`,
                   'background-color': GOLD,
                   'z-index': 1,
+                  'will-change': 'transform',
                   transform:
                     `translate(${-currentPixelMultiplier()}px, ${currentPixelMultiplier()}px)`
                 }}

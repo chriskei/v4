@@ -30,9 +30,11 @@ export default function Continue() {
   return (
     <div
       id='continue'
+      onClick={onClick}
       style={{
         margin: 'auto auto 1rem',
-        width: '34px'
+        width: '100%',
+        cursor: 'pointer'
       }}
     >
       <TextManager
@@ -41,15 +43,12 @@ export default function Continue() {
             activeMajorPage: majorPage(),
             activeMajorPageIdx: majorPageIdx(),
             text: '}',
-            pixelMultiplier: 2,
-            onClick
+            pixelMultiplier: 2
           }
         ]}
         parentDivAdditionalStyles={{
           position: 'relative',
-          left: '8px',
-          top: '4px',
-          cursor: 'pointer'
+          left: 'calc(50% - 9px)'
         }}
       />
     </div>
