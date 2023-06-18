@@ -33,7 +33,7 @@ function preformat(text, pixelMultiplier, parentWidth) {
 
 export function getDivs(text, pixelMultiplier, parentWidth) {
   // Accumulator
-  const divs = [];
+  const baseDivs = [];
 
   // Keep count of base positions since we work in smaller rectangles
   let baseTop = 0;
@@ -50,17 +50,18 @@ export function getDivs(text, pixelMultiplier, parentWidth) {
         baseLeft = pixelMultiplier;
       } else {
         const rects = charToRects[char];
+        const charDivs = [];
 
         // Iterate over each rectangle in the array
         for (const [ row, col, width, height ] of rects) {
         // Use pixelMultiplier to account for other pixel scales
-          const divTop = baseTop + (row * pixelMultiplier);
-          const divLeft = baseLeft + (col * pixelMultiplier);
+          const divTop = row * pixelMultiplier;
+          const divLeft = col * pixelMultiplier;
           const divWidth = width * pixelMultiplier;
           const divHeight = height * pixelMultiplier;
 
           // Generic div info
-          divs.push({
+          charDivs.push({
             left: divLeft,
             top: divTop,
             width: divWidth,
@@ -72,6 +73,12 @@ export function getDivs(text, pixelMultiplier, parentWidth) {
 
         // After each character, move baseLeft over
         baseLeft += PIXELS_PER_CHAR_WIDTH * pixelMultiplier;
+        const baseDiv = {
+          baseTop,
+          baseLeft,
+          charDivs
+        };
+        baseDivs.push(baseDiv);
       }
     }
 
@@ -82,6 +89,6 @@ export function getDivs(text, pixelMultiplier, parentWidth) {
 
   return {
     divsHeight,
-    divs
+    baseDivs
   };
 }

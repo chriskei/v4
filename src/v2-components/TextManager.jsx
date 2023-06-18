@@ -72,9 +72,9 @@ export default function TextManager(props) {
       }}
       onClick={() => currentOnClick() && currentOnClick()()}
     >
-      <Index each={currentTextGetDivs().divs}>
-        {(ele, idx) => {
-          const hiddenTransform = getHiddenTransform(idx);
+      <Index each={currentTextGetDivs().baseDivs}>
+        {(baseDiv, baseIdx) => {
+          const hiddenTransform = getHiddenTransform(baseIdx);
 
           return (
             <div
@@ -82,33 +82,42 @@ export default function TextManager(props) {
                 position: 'absolute',
                 'will-change': 'transform',
                 transform: showText()
-                  ? `translate(${ele().left}px, ${ele().top}px)`
+                  ? `translate(${baseDiv().baseLeft}px, ${baseDiv().baseTop}px)`
                   : hiddenTransform,
                 transition: 'transform 1s ease-in-out'
               }}
             >
-              <div
-                style={{
-                  position: 'absolute',
-                  width: `${ele().width}px`,
-                  height: `${ele().height}px`,
-                  'background-color': BLACK,
-                  'z-index': 2,
-                  'will-change': 'transform'
-                }}
-              />
-              <div
-                style={{
-                  position: 'absolute',
-                  width: `${ele().width}px`,
-                  height: `${ele().height}px`,
-                  'background-color': GOLD,
-                  'z-index': 1,
-                  'will-change': 'transform',
-                  transform:
-                    `translate(${-currentPixelMultiplier()}px, ${currentPixelMultiplier()}px)`
-                }}
-              />
+              <Index each={baseDiv().charDivs}>
+                {charDiv => (
+                  <div
+                    style={{
+                      position: 'absolute',
+                      transform: `translate(${charDiv().left}px, ${charDiv().top}px)`
+                    }}
+                  >
+                    <div
+                      style={{
+                        position: 'absolute',
+                        width: `${charDiv().width}px`,
+                        height: `${charDiv().height}px`,
+                        'background-color': BLACK,
+                        'z-index': 2
+                      }}
+                    />
+                    <div
+                      style={{
+                        position: 'absolute',
+                        width: `${charDiv().width}px`,
+                        height: `${charDiv().height}px`,
+                        'background-color': GOLD,
+                        'z-index': 1,
+                        transform:
+                          `translate(${-currentPixelMultiplier()}px, ${currentPixelMultiplier()}px)`
+                      }}
+                    />
+                  </div>
+                )}
+              </Index>
             </div>
           );
         }}

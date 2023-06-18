@@ -48,7 +48,7 @@ export default function Continue() {
         ]}
         parentDivAdditionalStyles={{
           position: 'relative',
-          left: 'calc(50% - 9px)'
+          left: 'calc(50% - 27px)'
         }}
       />
     </div>
