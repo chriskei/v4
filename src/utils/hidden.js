@@ -1,7 +1,7 @@
 const hiddenTransforms = (() => {
   const arr = [];
 
-  for (let i = 0; i <= 100; i++) {
+  for (let i = -100; i <= 100; i += 5) {
     arr.push(`translate(-150vw, ${i}vh)`);
     arr.push(`translate(250vw, ${i}vh)`);
     arr.push(`translate(${i}vw, -150vh)`);
