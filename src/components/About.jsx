@@ -2,7 +2,7 @@ import AssetManager from './AssetManager';
 import TextManager from './TextManager';
 import {
   assetManagerData, textManager1Data, textManager2Data
-} from '../v2-content/about';
+} from '../content/about';
 
 export default function About() {
   return (

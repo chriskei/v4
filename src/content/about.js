@@ -36,19 +36,19 @@ const aboutContent = [
   },
   {
     contentType: ASSET_TYPES.TEXT,
-    text: 'Another large slice of my life that influences everything from where I live to what I watch while side planking is cooking. Both of my parents and lots of my relatives are amazing cooks, so while I barely cooked for myself growing up, I learned a lot from watching them and helping with small tasks. My favorite dishes to make are ones where you can throw everything in a pot, turn on the stove, and let the flavors compound - think Chinese beef brisket noodle soup, steamed spareribs and taro in black bean sauce, and red wine braised short ribs over mashed potatoes.'
+    text: 'Another large slice of my life is cooking. Both of my parents and lots of my relatives are amazing cooks, so while I barely cooked for myself growing up, I learned a lot from watching them and helping with small tasks, like cutting the tips off green beans and making oyster sauce slurries. In college, these experiences became the foundation of my cooking journey as I discovered that I love to cook. My favorite dishes to make are ones where you can throw everything in a pot, turn on the stove, and sit back while the flavors compound - think Chinese beef brisket noodle soup, steamed spareribs and taro in black bean sauce, and red wine braised short ribs over mashed potatoes.'
   },
   {
     contentType: ASSET_TYPES.TEXT,
-    text: "Even though I know it's a lot of hard work, I always tell my parents that one day I'm going to open my own restaurant. I truly hope that that becomes reality as I'd love to share my food and culture with others! But at a minimum, when I retire I'd love to live on a farm where I can grow my own fresh food to cook with everyday."
+    text: "Even though I know it's a lot of hard work, I always tell my parents that one day I'm going to open my own restaurant. I truly hope that that becomes reality as I'd love to share my food and culture with others! But at a minimum, when I retire I'd love to live on a farm where I can grow my own fresh fruits and veggies to cook with everyday."
   },
   {
     contentType: ASSET_TYPES.TEXT,
-    text: "At the end of a long day, I'm lucky to still have a few hours to myself to wind down. If my brain isn't completely spent by then, I love sitting down at my desk to read. A few years ago, I went through a phase where I read a bunch of classics like <The Grapes of Wrath> and <1984>, but in the end I learned that I loved autobiographies more like Obama's <A Promised Land>. Now, one of my favorite things to do is randomly pop into Goodwill to look for autobiographies to add to my book collection."
+    text: "At the end of a long day, I'm lucky to still have a few hours to myself to wind down. If my brain isn't completely spent by then, I love sitting down at my desk to read. A few years ago, I went through a phase where I read a bunch of classics like <The Grapes of Wrath> and <1984>, but in the end I learned that I loved nonfiction books, particularly autobiographies like Obama's <A Promised Land>. Now, one of my favorite spontaneous things to do is pop into Goodwill to look for books to add to my collection."
   },
   {
     contentType: ASSET_TYPES.TEXT,
-    text: "Other times, I'll head to my living room to play the piano. Like tennis, I started playing the piano really young, but after quitting piano lessons I didn't play much until mid-college. While I was trained on classical piano music, my favorite pieces to play are actually anime songs since they sound complete and are both complex yet fun to play, and I've actually arranged some pieces that you can download later!"
+    text: "Other times, I'll head to my living room to play the piano. Like tennis, I started playing the piano really young, but after quitting piano lessons I didn't play much until mid-college. Thankfully, I was able to retain a lot of what I learned from difficult classical piano pieces and became quite good at sight-reading music. This has been immensely helpful in navigating the vast world of anime songs, which I love to play because the piano alone can cover every single sound that normally would require multiple instruments or electronic tracks, resulting in a complete feel to pieces. If you're interested, I've actually arranged a few pieces that you can download later!"
   },
   {
     contentType: ASSET_TYPES.TEXT,

@@ -1,7 +1,7 @@
-import Header from './v2-components/Header';
-import Menu from './v2-components/Menu';
-import About from './v2-components/About';
-import Continue from './v2-components/Continue';
+import Header from './components/Header';
+import Menu from './components/Menu';
+import About from './components/About';
+import Continue from './components/Continue';
 
 import styles from './App.module.css';
 

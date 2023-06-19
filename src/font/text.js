@@ -71,14 +71,16 @@ export function getDivs(text, pixelMultiplier, parentWidth) {
           });
         }
 
-        // After each character, move baseLeft over
-        baseLeft += PIXELS_PER_CHAR_WIDTH * pixelMultiplier;
+        // Save baseDiv info before moving baseLeft
         const baseDiv = {
           baseTop,
           baseLeft,
           charDivs
         };
         baseDivs.push(baseDiv);
+
+        // After each character, move baseLeft over
+        baseLeft += PIXELS_PER_CHAR_WIDTH * pixelMultiplier;
       }
     }
 

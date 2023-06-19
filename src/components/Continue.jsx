@@ -1,7 +1,7 @@
 import { usePageContext } from '../context/Page';
 import { MAJOR_PAGES } from '../utils/majorPages';
 import TextManager from './TextManager';
-import { numAboutPages } from '../v2-content/about';
+import { numAboutPages } from '../content/about';
 
 export default function Continue() {
   const {
@@ -48,7 +48,7 @@ export default function Continue() {
         ]}
         parentDivAdditionalStyles={{
           position: 'relative',
-          left: 'calc(50% - 27px)'
+          left: 'calc(50% - 9px)'
         }}
       />
     </div>
