@@ -1,17 +1,24 @@
 import { usePageContext } from '../context/Page';
 import { MAJOR_PAGES } from '../utils/majorPages';
-import TextManager from './TextManager';
 import { numAboutPages } from '../content/about';
+import { numSevenPages } from '../content/seven';
+import TextManager from './TextManager';
 
 export default function Continue() {
   const {
-    majorPage, setMajorPage, majorPageIdx, setMajorPageIdx, desiredMajorPage
+    majorPage, setMajorPage, majorPageIdx, setMajorPageIdx, desiredMajorPage, setDesiredMajorPage
   } = usePageContext();
+
   const onClick = () => {
     const nextMajorPageIdx = majorPageIdx() + 1;
+
     switch (majorPage()) {
     case MAJOR_PAGES.HOME:
-      setMajorPage(desiredMajorPage);
+      setMajorPage(desiredMajorPage());
+      if (desiredMajorPage() === MAJOR_PAGES.WORK) {
+        setDesiredMajorPage(MAJOR_PAGES.SEVEN);
+      }
+
       break;
     case MAJOR_PAGES.ABOUT:
       if (nextMajorPageIdx === numAboutPages) {
@@ -22,7 +29,21 @@ export default function Continue() {
       }
 
       break;
+    case MAJOR_PAGES.WORK:
+      setMajorPage(desiredMajorPage());
+      break;
+    case MAJOR_PAGES.SEVEN:
+      if (nextMajorPageIdx === numSevenPages) {
+        setMajorPage(MAJOR_PAGES.WORK);
+        setMajorPageIdx(0);
+      } else {
+        setMajorPageIdx(nextMajorPageIdx);
+      }
+
+      break;
     default:
+      setMajorPage(MAJOR_PAGES.HOME);
+      setMajorPageIdx(0);
       break;
     }
   };

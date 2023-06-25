@@ -11,6 +11,7 @@ import { getHiddenTransform } from '../utils/hidden';
 // PROPS
 // data: array of objects
 //   activeMajorPage: number
+//   activeMajorPages: array of numbers
 //   activeMajorPageIdx: number
 //   text: string
 //   pixelMultiplier: number
@@ -31,8 +32,16 @@ export default function TextManager(props) {
     const {
       text, pixelMultiplier, onClick
     } = props.data.find(({
-      activeMajorPage, activeMajorPageIdx
-    }) => activeMajorPage === majorPage() && activeMajorPageIdx === majorPageIdx())
+      activeMajorPage, activeMajorPages, activeMajorPageIdx
+    }) =>
+      (
+        activeMajorPage === majorPage()
+        || (
+          activeMajorPages?.length > 0 && activeMajorPages.includes(majorPage())
+        )
+      )
+      && activeMajorPageIdx === majorPageIdx()
+    )
     || {
       text: '',
       pixelMultiplier: 0,
